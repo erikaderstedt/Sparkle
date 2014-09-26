@@ -11,6 +11,9 @@
 
 #import <Security/cssm.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations" // this is terrible; will fix later probably
+
 /* CDSA Specific */
 static CSSM_CSP_HANDLE cdsaInit( void );
 static void cdsaRelease( CSSM_CSP_HANDLE cspHandle );
@@ -355,3 +358,5 @@ static Boolean su_copyBytesToData( CSSM_DATA_PTR data, CSSM_SIZE size, const uin
 	}
 	return retval;	
 }
+
+#pragma clang diagnostic pop
